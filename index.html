@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIFA World Cup 2026 Fixture By Niaz</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#0f172a;
+color:white;
+margin:0;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#22c55e;
+}
+
+select{
+width:100%;
+padding:10px;
+margin:20px 0;
+border-radius:8px;
+}
+
+.card{
+background:#1e293b;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+}
+
+.date{
+color:#94a3b8;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🏆 FIFA World Cup 2026 By Niaz</h1>
+
+<select id="teamSelect">
+<option value="all">All Teams</option>
+<option value="Argentina">Argentina</option>
+<option value="Brazil">Brazil</option>
+<option value="Portugal">Portugal</option>
+<option value="England">England</option>
+<option value="France">France</option>
+<option value="Spain">Spain</option>
+</select>
+
+<div id="matches"></div>
+
+<script>
+
+const fixtures = [
+{
+team1:"Argentina",
+team2:"Austria",
+date:"23 June 2026",
+time:"11:00 PM BST"
+},
+{
+team1:"Portugal",
+team2:"Uzbekistan",
+date:"24 June 2026",
+time:"11:00 PM BST"
+},
+{
+team1:"England",
+team2:"Ghana",
+date:"24 June 2026",
+time:"2:00 AM BST"
+},
+{
+team1:"France",
+team2:"Iraq",
+date:"23 June 2026",
+time:"3:00 AM BST"
+},
+{
+team1:"Brazil",
+team2:"Scotland",
+date:"25 June 2026",
+time:"4:00 AM BST"
+}
+];
+
+const matchesDiv = document.getElementById("matches");
+
+function showMatches(team="all"){
+matchesDiv.innerHTML="";
+
+fixtures
+.filter(m =>
+team==="all" ||
+m.team1===team ||
+m.team2===team
+)
+.forEach(match=>{
+
+matchesDiv.innerHTML += `
+<div class="card">
+<h3>${match.team1} vs ${match.team2}</h3>
+<div class="date">${match.date}</div>
+<div>${match.time}</div>
+</div>
+`;
+
+});
+}
+
+showMatches();
+
+document.getElementById("teamSelect")
+.addEventListener("change",(e)=>{
+showMatches(e.target.value);
+});
+
+</script>
+
+</body>
+</html>
