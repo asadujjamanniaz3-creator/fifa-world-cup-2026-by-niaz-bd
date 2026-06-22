@@ -6,518 +6,460 @@
 <title>FIFA World Cup 2026 - Asadujjaman Niaz</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #F5C518;
-    --dark: #0A0E1A;
-    --darker: #060810;
-    --card: #111827;
-    --border: #1E293B;
-    --text: #E2E8F0;
-    --muted: #64748B;
-    --accent: #3B82F6;
-    --green: #22C55E;
-    --red: #EF4444;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--dark); color:var(--text); font-family:'Inter',sans-serif; min-height:100vh; }
+:root {
+  --bg: #F0F4F8;
+  --card: #FFFFFF;
+  --border: #E2E8F0;
+  --text: #1A202C;
+  --muted: #718096;
+  --green: #276749;
+  --green-bg: #C6F6D5;
+  --blue: #2B6CB0;
+  --blue-bg: #EBF8FF;
+  --red: #C53030;
+  --red-bg: #FFF5F5;
+  --gold: #B7791F;
+  --gold-bg: #FEFCBF;
+  --accent: #2C5282;
+  --header-bg: #1A365D;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; font-size:14px; }
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg,#060810 0%,#0F172A 60%,#0A0E1A 100%);
-    border-bottom:1px solid var(--border);
-    padding:1.5rem 1rem 1.2rem;
-    text-align:center;
-    position:relative; overflow:hidden;
-  }
-  .hero::before {
-    content:''; position:absolute; inset:0;
-    background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(245,197,24,0.09) 0%,transparent 70%);
-  }
-  .hero-inner { position:relative; z-index:1; }
-  .trophy { font-size:3rem; line-height:1; margin-bottom:0.4rem; }
-  .hero h1 {
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(1.8rem,6vw,3.2rem);
-    letter-spacing:0.06em; color:var(--gold);
-    text-shadow:0 0 40px rgba(245,197,24,0.35); line-height:1;
-  }
-  .hero-sub { font-size:0.78rem; color:var(--muted); letter-spacing:0.15em; text-transform:uppercase; margin-top:0.3rem; }
-  .creator {
-    display:inline-flex; align-items:center; gap:0.6rem;
-    background:rgba(245,197,24,0.07); border:1px solid rgba(245,197,24,0.2);
-    border-radius:50px; padding:0.4rem 0.9rem; margin-top:0.8rem;
-  }
-  .creator-avatar {
-    width:32px; height:32px; border-radius:50%;
-    background:linear-gradient(135deg,var(--gold),#E07B00);
-    display:flex; align-items:center; justify-content:center;
-    font-weight:700; font-size:0.8rem; color:#000; flex-shrink:0;
-  }
-  .creator-name { font-size:0.82rem; font-weight:600; color:var(--gold); }
-  .creator-label { font-size:0.65rem; color:var(--muted); }
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #1A365D 0%, #2A4A7F 100%);
+  color: #fff;
+  padding: 1.2rem 1rem 1rem;
+  text-align: center;
+}
+.header h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size: clamp(1.6rem,5vw,2.8rem);
+  letter-spacing:.06em;
+  color:#F6E05E;
+}
+.header-sub { font-size:.75rem; color:#BEE3F8; letter-spacing:.1em; margin-top:.2rem; }
+.creator-bar {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+  border-radius:30px; padding:.35rem .9rem; margin-top:.75rem;
+}
+.av { width:28px;height:28px;border-radius:50%;background:#F6E05E;color:#1A365D;font-weight:700;font-size:.75rem;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+.creator-name { font-size:.8rem;font-weight:600;color:#F6E05E; }
 
-  /* STATS */
-  .stats-bar {
-    display:flex; justify-content:center; gap:1.5rem;
-    padding:0.8rem 1rem; border-bottom:1px solid var(--border); flex-wrap:wrap;
-  }
-  .stat { text-align:center; }
-  .stat-num { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:var(--gold); }
-  .stat-lbl { font-size:0.62rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); }
+/* STATS */
+.stats { display:flex;justify-content:center;gap:1.2rem;padding:.7rem;background:#fff;border-bottom:1px solid var(--border);flex-wrap:wrap; }
+.stat { text-align:center; }
+.stat-n { font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--accent); }
+.stat-l { font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted); }
 
-  /* NAV */
-  .nav {
-    display:flex; overflow-x:auto; gap:0.2rem;
-    padding:0.6rem 0.6rem 0; background:var(--darker);
-    border-bottom:1px solid var(--border); scrollbar-width:none;
-  }
-  .nav::-webkit-scrollbar { display:none; }
-  .tab {
-    padding:0.55rem 1rem; border-radius:8px 8px 0 0;
-    font-size:0.78rem; font-weight:600; cursor:pointer;
-    white-space:nowrap; border:1px solid transparent; border-bottom:none;
-    color:var(--muted); background:transparent; transition:all 0.2s; letter-spacing:0.04em;
-  }
-  .tab:hover { color:var(--text); background:var(--border); }
-  .tab.active { color:var(--gold); background:var(--dark); border-color:var(--border); }
+/* TEAM SEARCH DROPDOWN */
+.search-bar {
+  background:#fff; border-bottom:2px solid #E2E8F0;
+  padding:.75rem 1rem;
+}
+.search-label { font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.4rem; }
+.team-select {
+  width:100%; padding:.6rem .8rem;
+  border:1.5px solid var(--border); border-radius:8px;
+  font-size:.9rem; font-family:'Inter',sans-serif;
+  background:#fff; color:var(--text); cursor:pointer;
+  appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23718096' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right .8rem center;
+  padding-right:2rem;
+}
+.team-select:focus { outline:none; border-color:var(--accent); }
 
-  /* CONTENT */
-  .content { padding:1rem; max-width:960px; margin:0 auto; }
-  .section { display:none; }
-  .section.active { display:block; }
+/* TEAM PANEL */
+.team-panel {
+  display:none; background:#fff;
+  border-bottom:2px solid var(--border);
+  padding:.85rem 1rem;
+}
+.team-panel.show { display:block; }
+.tp-header { display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem; }
+.tp-flag { font-size:1.8rem; }
+.tp-name { font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em; }
+.tp-group { font-size:.7rem;color:var(--muted); }
+.tp-pts { font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--accent);margin-left:auto; }
+.tp-pts-lbl { font-size:.6rem;color:var(--muted);text-align:right; }
 
-  /* GROUP GRID */
-  .groups-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:0.85rem; }
-  .group-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:12px; overflow:hidden; cursor:pointer;
-    transition:border-color 0.2s, transform 0.15s;
-  }
-  .group-card:hover { border-color:rgba(245,197,24,0.4); transform:translateY(-2px); }
-  .group-header {
-    background:linear-gradient(90deg,rgba(245,197,24,0.12),transparent);
-    border-bottom:1px solid var(--border);
-    padding:0.65rem 0.9rem; display:flex; align-items:center; gap:0.6rem;
-  }
-  .group-letter { font-family:'Bebas Neue',sans-serif; font-size:1.7rem; color:var(--gold); line-height:1; }
-  .group-venue { font-size:0.67rem; color:var(--muted); margin-top:0.1rem; }
-  .team-row {
-    display:flex; align-items:center; gap:0.65rem;
-    padding:0.55rem 0.9rem;
-    border-bottom:1px solid rgba(30,41,59,0.6);
-    font-size:0.83rem; cursor:pointer; transition:background 0.15s;
-  }
-  .team-row:last-child { border-bottom:none; }
-  .team-row:hover { background:rgba(245,197,24,0.05); }
-  .team-flag { font-size:1.15rem; width:1.4rem; text-align:center; flex-shrink:0; }
-  .team-name { flex:1; font-weight:500; }
-  .host-badge {
-    font-size:0.58rem; font-weight:700; letter-spacing:0.08em;
-    background:rgba(245,197,24,0.12); color:var(--gold);
-    border:1px solid rgba(245,197,24,0.25); border-radius:4px;
-    padding:0.1rem 0.3rem;
-  }
-  .click-hint { font-size:0.62rem; color:var(--muted); padding:0.35rem 0.9rem; text-align:center; border-top:1px solid var(--border); }
+.tp-matches { display:flex;flex-direction:column;gap:.45rem; }
+.tp-match {
+  border:1px solid var(--border);border-radius:8px;padding:.6rem .75rem;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.4rem;
+}
+.tp-team { display:flex;align-items:center;gap:.35rem;font-size:.8rem;font-weight:600; }
+.tp-team.r { flex-direction:row-reverse;text-align:right; }
+.score-pill {
+  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+  padding:.15rem .5rem;border-radius:6px;letter-spacing:.08em;
+  background:var(--gold-bg);color:var(--gold);border:1px solid #ECC94B;
+}
+.tp-meta { display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.4rem; }
+.tag { font-size:.62rem;padding:.12rem .4rem;border-radius:4px;font-weight:600; }
+.tag-date { background:var(--blue-bg);color:var(--blue); }
+.tag-time { background:var(--gold-bg);color:var(--gold); }
+.tag-venue { background:var(--bg);color:var(--muted); }
+.tag-done { background:var(--green-bg);color:var(--green); }
+.tag-soon { background:#EDF2F7;color:var(--muted);font-style:italic; }
 
-  /* MODAL */
-  .modal-overlay {
-    display:none; position:fixed; inset:0;
-    background:rgba(0,0,0,0.8); z-index:1000;
-    align-items:center; justify-content:center; padding:1rem;
-  }
-  .modal-overlay.open { display:flex; }
-  .modal {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:16px; width:100%; max-width:520px;
-    max-height:90vh; overflow-y:auto; position:relative;
-  }
-  .modal-header {
-    background:linear-gradient(135deg,rgba(245,197,24,0.1),transparent);
-    border-bottom:1px solid var(--border);
-    padding:1rem 1.2rem; display:flex; align-items:center; gap:0.75rem;
-    position:sticky; top:0; z-index:1; background-color:var(--card);
-  }
-  .modal-flag { font-size:2rem; }
-  .modal-team-name { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.05em; }
-  .modal-group { font-size:0.72rem; color:var(--muted); }
-  .modal-close {
-    margin-left:auto; background:none; border:none;
-    color:var(--muted); font-size:1.3rem; cursor:pointer;
-    padding:0.2rem 0.5rem; border-radius:6px; transition:color 0.2s;
-  }
-  .modal-close:hover { color:var(--text); }
-  .modal-body { padding:1rem 1.2rem; }
-  .modal-section-title {
-    font-size:0.68rem; font-weight:700; letter-spacing:0.12em;
-    text-transform:uppercase; color:var(--muted); margin:1rem 0 0.5rem;
-  }
-  .modal-section-title:first-child { margin-top:0; }
+/* TABS */
+.nav { display:flex;overflow-x:auto;background:#fff;border-bottom:2px solid var(--border);scrollbar-width:none; }
+.nav::-webkit-scrollbar { display:none; }
+.tab {
+  padding:.55rem .9rem;font-size:.78rem;font-weight:600;cursor:pointer;
+  white-space:nowrap;border:none;border-bottom:2px solid transparent;
+  color:var(--muted);background:transparent;transition:all .2s;letter-spacing:.03em;
+  margin-bottom:-2px;
+}
+.tab:hover { color:var(--text); }
+.tab.active { color:var(--accent);border-bottom-color:var(--accent); }
 
-  .match-item {
-    background:var(--dark); border:1px solid var(--border);
-    border-radius:10px; padding:0.75rem 1rem; margin-bottom:0.5rem;
-  }
-  .match-teams {
-    display:flex; align-items:center; justify-content:space-between;
-    gap:0.5rem; margin-bottom:0.4rem;
-  }
-  .match-t { font-size:0.85rem; font-weight:600; display:flex; align-items:center; gap:0.35rem; }
-  .match-t.right { flex-direction:row-reverse; }
-  .score-box {
-    font-family:'Bebas Neue',sans-serif; font-size:1.2rem;
-    color:var(--gold); letter-spacing:0.1em; white-space:nowrap;
-    padding:0.1rem 0.5rem; background:rgba(245,197,24,0.08);
-    border-radius:6px; border:1px solid rgba(245,197,24,0.15);
-  }
-  .match-meta { display:flex; gap:0.5rem; flex-wrap:wrap; }
-  .meta-tag {
-    font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:4px;
-    font-weight:600; letter-spacing:0.04em;
-  }
-  .meta-date { background:rgba(59,130,246,0.1); color:#93C5FD; }
-  .meta-time { background:rgba(245,197,24,0.1); color:var(--gold); }
-  .meta-venue { background:rgba(100,116,139,0.1); color:var(--muted); }
-  .meta-result { background:rgba(34,197,94,0.1); color:#86EFAC; }
-  .meta-tbd { background:rgba(100,116,139,0.08); color:var(--muted); font-style:italic; }
+/* CONTENT */
+.content { padding:.75rem;max-width:960px;margin:0 auto; }
+.section { display:none; }
+.section.active { display:block; }
 
-  /* KO section in modal */
-  .ko-note {
-    background:rgba(59,130,246,0.07); border:1px solid rgba(59,130,246,0.15);
-    border-radius:8px; padding:0.65rem 0.85rem; font-size:0.78rem; color:#93C5FD;
-    line-height:1.5; margin-bottom:0.75rem;
-  }
+/* GROUP CARDS */
+.groups-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem; }
+.group-card { background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden; }
+.group-hd {
+  background:linear-gradient(90deg,#1A365D,#2C5282);
+  color:#fff;padding:.55rem .85rem;display:flex;align-items:center;gap:.6rem;
+}
+.gl { font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:#F6E05E;line-height:1; }
+.gv { font-size:.65rem;color:#BEE3F8;margin-top:.05rem; }
 
-  /* MATCHES TAB full list */
-  .filter-row { display:flex; gap:0.35rem; flex-wrap:wrap; margin-bottom:0.85rem; }
-  .fbtn {
-    padding:0.3rem 0.7rem; border-radius:20px; font-size:0.73rem; font-weight:600;
-    cursor:pointer; border:1px solid var(--border); color:var(--muted);
-    background:transparent; transition:all 0.2s;
-  }
-  .fbtn:hover { color:var(--text); border-color:var(--text); }
-  .fbtn.active { background:var(--gold); color:#000; border-color:var(--gold); }
+/* POINTS TABLE inside group */
+.pts-table { width:100%;border-collapse:collapse;font-size:.72rem; }
+.pts-table th { background:#F7FAFC;color:var(--muted);font-weight:600;padding:.35rem .6rem;text-align:center;border-bottom:1px solid var(--border); }
+.pts-table th:first-child { text-align:left; }
+.pts-table td { padding:.4rem .6rem;text-align:center;border-bottom:1px solid #F0F4F8; }
+.pts-table td:first-child { text-align:left; }
+.pts-table tr:last-child td { border-bottom:none; }
+.pts-table tr:hover td { background:#F7FAFC; }
+.team-cell { display:flex;align-items:center;gap:.4rem;cursor:pointer; }
+.team-cell:hover .tc-name { text-decoration:underline; }
+.tc-flag { font-size:1rem; }
+.tc-name { font-weight:500; }
+.qualified { background:rgba(39,103,73,.06); }
+.qualified td:first-child { border-left:3px solid var(--green); }
+.maybe-q { background:rgba(43,108,176,.04); }
+.maybe-q td:first-child { border-left:3px solid var(--blue); }
+.pts-bold { font-weight:700;color:var(--accent); }
+.host-tag { font-size:.55rem;background:var(--gold-bg);color:var(--gold);border-radius:3px;padding:.05rem .25rem;font-weight:700; }
+.q-legend { display:flex;gap:.6rem;padding:.35rem .6rem;font-size:.6rem;color:var(--muted);border-top:1px solid var(--border); }
+.q-dot { width:8px;height:8px;border-radius:2px;flex-shrink:0;margin-top:1px; }
 
-  .full-match {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:10px; padding:0.7rem 1rem; margin-bottom:0.45rem;
-    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:0.5rem;
-    transition:border-color 0.2s;
-  }
-  .full-match:hover { border-color:rgba(245,197,24,0.25); }
-  .fm-team { display:flex; align-items:center; gap:0.4rem; font-size:0.82rem; font-weight:600; }
-  .fm-team.r { flex-direction:row-reverse; text-align:right; }
-  .fm-mid { text-align:center; }
-  .fm-score { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; color:var(--gold); letter-spacing:0.1em; }
-  .fm-date { font-size:0.65rem; color:var(--muted); }
-  .fm-venue { font-size:0.6rem; color:var(--muted); margin-top:0.1rem; }
-  .fm-group { font-size:0.62rem; color:var(--accent); font-weight:700; letter-spacing:0.08em; }
+/* FULL MATCHES */
+.filter-row { display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.75rem; }
+.fbtn {
+  padding:.3rem .65rem;border-radius:20px;font-size:.72rem;font-weight:600;
+  cursor:pointer;border:1.5px solid var(--border);color:var(--muted);
+  background:#fff;transition:all .2s;
+}
+.fbtn:hover { border-color:var(--accent);color:var(--accent); }
+.fbtn.active { background:var(--accent);color:#fff;border-color:var(--accent); }
 
-  /* KNOCKOUT TAB */
-  .ko-round { margin-bottom:1.5rem; }
-  .round-hd {
-    font-family:'Bebas Neue',sans-serif; font-size:1.15rem; letter-spacing:0.07em;
-    color:var(--gold); margin-bottom:0.65rem;
-    display:flex; align-items:center; gap:0.5rem;
-  }
-  .round-hd::after { content:''; flex:1; height:1px; background:var(--border); }
-  .ko-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:0.45rem; }
-  .ko-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:8px; overflow:hidden; font-size:0.78rem;
-  }
-  .ko-date-bar { font-size:0.63rem; color:var(--muted); padding:0.3rem 0.7rem; background:rgba(0,0,0,0.3); }
-  .ko-team { padding:0.45rem 0.7rem; display:flex; align-items:center; gap:0.45rem; border-bottom:1px solid var(--border); font-weight:500; }
-  .ko-team:last-child { border-bottom:none; }
-  .ko-tbd { color:var(--muted); font-style:italic; font-weight:400; }
+.full-match {
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:.65rem .85rem;margin-bottom:.4rem;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.4rem;
+}
+.fm-team { display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:600; }
+.fm-team.r { flex-direction:row-reverse;text-align:right; }
+.fm-mid { text-align:center; }
+.fm-score { font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--gold);letter-spacing:.08em; }
+.fm-date { font-size:.63rem;color:var(--muted); }
+.fm-group { font-size:.6rem;color:var(--blue);font-weight:700;letter-spacing:.06em; }
+.fm-venue { font-size:.58rem;color:var(--muted); }
 
-  .bracket-info {
-    background:rgba(59,130,246,0.07); border:1px solid rgba(59,130,246,0.18);
-    border-radius:10px; padding:0.85rem 1rem; margin-bottom:1rem;
-    font-size:0.8rem; color:#93C5FD; line-height:1.6;
-  }
+/* KNOCKOUT */
+.ko-info {
+  background:var(--blue-bg);border:1px solid #BEE3F8;border-radius:10px;
+  padding:.75rem .9rem;font-size:.78rem;color:var(--blue);line-height:1.6;margin-bottom:.85rem;
+}
+.ko-round { margin-bottom:1.2rem; }
+.round-hd {
+  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;
+  color:var(--accent);margin-bottom:.55rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.round-hd::after { content:'';flex:1;height:1.5px;background:var(--border); }
+.ko-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.4rem; }
+.ko-card { background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden; }
+.ko-date-bar { font-size:.62rem;color:var(--muted);padding:.3rem .65rem;background:#F7FAFC;border-bottom:1px solid var(--border); }
+.ko-team { padding:.42rem .65rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--border);font-size:.78rem;font-weight:500; }
+.ko-team:last-child { border-bottom:none; }
+.ko-tbd { color:var(--muted);font-style:italic;font-weight:400; }
+.ko-confirmed { color:var(--green);font-weight:700; }
+.qualified-badge { font-size:.6rem;background:var(--green-bg);color:var(--green);border-radius:3px;padding:.05rem .3rem;font-weight:700;margin-left:auto; }
 
-  footer {
-    text-align:center; padding:1.5rem 1rem;
-    color:var(--muted); font-size:0.72rem;
-    border-top:1px solid var(--border); margin-top:1rem;
-  }
+.pg-title { font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;margin-bottom:.7rem;color:var(--text); }
+.bd-badge { display:inline-flex;align-items:center;gap:.3rem;background:var(--green-bg);border:1px solid #9AE6B4;border-radius:20px;padding:.2rem .55rem;font-size:.65rem;color:var(--green);font-weight:600;letter-spacing:.04em;margin-bottom:.65rem; }
 
-  .page-title { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:0.05em; margin-bottom:0.85rem; }
+footer { text-align:center;padding:1.2rem;color:var(--muted);font-size:.7rem;border-top:1px solid var(--border);margin-top:1rem; }
 
-  .bd-badge {
-    display:inline-flex; align-items:center; gap:0.3rem;
-    background:rgba(0,128,0,0.12); border:1px solid rgba(0,200,0,0.2);
-    border-radius:20px; padding:0.2rem 0.6rem;
-    font-size:0.65rem; color:#4ADE80; font-weight:600; letter-spacing:0.05em;
-    margin-bottom:0.75rem;
-  }
+@media(max-width:400px){
+  .fm-team span:last-child { max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+}
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <div class="hero-inner">
-    <div class="trophy">🏆</div>
-    <h1>FIFA WORLD CUP 2026</h1>
-    <div class="hero-sub">USA · Canada · Mexico &nbsp;|&nbsp; ১১ জুন – ১৯ জুলাই ২০২৬</div>
-    <div class="creator">
-      <div class="creator-avatar">AN</div>
-      <div>
-        <div class="creator-name">Asadujjaman Niaz</div>
-        <div class="creator-label">বিশ্বকাপ সময়সূচি ট্র্যাকার</div>
-      </div>
+<div class="header">
+  <div>🏆</div>
+  <h1>FIFA WORLD CUP 2026</h1>
+  <div class="header-sub">USA · CANADA · MEXICO &nbsp;|&nbsp; ১১ জুন – ১৯ জুলাই ২০২৬</div>
+  <div class="creator-bar">
+    <div class="av">AN</div>
+    <div>
+      <div class="creator-name">Asadujjaman Niaz</div>
+      <div style="font-size:.62rem;color:#BEE3F8">বিশ্বকাপ সময়সূচি ট্র্যাকার</div>
     </div>
   </div>
 </div>
 
-<div class="stats-bar">
-  <div class="stat"><div class="stat-num">48</div><div class="stat-lbl">দল</div></div>
-  <div class="stat"><div class="stat-num">104</div><div class="stat-lbl">ম্যাচ</div></div>
-  <div class="stat"><div class="stat-num">12</div><div class="stat-lbl">গ্রুপ</div></div>
-  <div class="stat"><div class="stat-num">16</div><div class="stat-lbl">স্টেডিয়াম</div></div>
-  <div class="stat"><div class="stat-num">39</div><div class="stat-lbl">দিন</div></div>
+<div class="stats">
+  <div class="stat"><div class="stat-n">48</div><div class="stat-l">দল</div></div>
+  <div class="stat"><div class="stat-n">104</div><div class="stat-l">ম্যাচ</div></div>
+  <div class="stat"><div class="stat-n">12</div><div class="stat-l">গ্রুপ</div></div>
+  <div class="stat"><div class="stat-n">16</div><div class="stat-l">স্টেডিয়াম</div></div>
 </div>
 
+<!-- TEAM SEARCH -->
+<div class="search-bar">
+  <div class="search-label">🔍 দল বেছে নিন — পয়েন্ট ও সূচি দেখুন</div>
+  <select class="team-select" id="team-select" onchange="showTeamPanel(this.value)">
+    <option value="">— একটি দল সিলেক্ট করুন —</option>
+  </select>
+</div>
+<div class="team-panel" id="team-panel"></div>
+
 <div class="nav">
-  <button class="tab active" onclick="showTab('groups',this)">🗂 গ্রুপ</button>
+  <button class="tab active" onclick="showTab('groups',this)">🗂 গ্রুপ + পয়েন্ট</button>
   <button class="tab" onclick="showTab('matches',this)">📅 সম্পূর্ণ সূচি</button>
   <button class="tab" onclick="showTab('knockout',this)">⚡ নকআউট</button>
 </div>
 
 <div class="content">
-
-  <!-- GROUPS -->
   <div class="section active" id="tab-groups">
-    <div class="page-title">১২টি গ্রুপ — দলে ক্লিক করুন সূচি দেখতে</div>
+    <div class="pg-title">১২ গ্রুপ — পয়েন্ট টেবিল সহ</div>
     <div class="groups-grid" id="groups-container"></div>
   </div>
 
-  <!-- ALL MATCHES -->
   <div class="section" id="tab-matches">
-    <div class="page-title">গ্রুপ স্টেজ সম্পূর্ণ সূচি</div>
+    <div class="pg-title">গ্রুপ স্টেজ সম্পূর্ণ সূচি</div>
     <div class="bd-badge">🇧🇩 সব সময় বাংলাদেশ সময় (BST, UTC+6)</div>
     <div class="filter-row" id="date-filter"></div>
     <div id="matches-list"></div>
   </div>
 
-  <!-- KNOCKOUT -->
   <div class="section" id="tab-knockout">
-    <div class="page-title">নকআউট পর্যায়</div>
-    <div class="bracket-info">
-      ℹ️ প্রতি গ্রুপের শীর্ষ ২টি দল + সেরা ৮টি তৃতীয় স্থানের দল — মোট <strong>৩২টি দল</strong> নকআউটে যাবে। গ্রুপ স্টেজ শেষে দলের নাম স্বয়ংক্রিয়ভাবে আপডেট হবে। সব সময় <strong>🇧🇩 বাংলাদেশ সময়</strong>।
+    <div class="pg-title">নকআউট পর্যায়</div>
+    <div class="ko-info">
+      ✅ যে দলগুলো ইতিমধ্যে নকআউটে উঠেছে তাদের নাম সবুজে দেখাবে। বাকিগুলো গ্রুপ স্টেজ শেষে স্বয়ংক্রিয়ভাবে আপডেট হবে। সব সময় 🇧🇩 বাংলাদেশ সময়।
     </div>
     <div id="knockout-container"></div>
   </div>
-
 </div>
 
-<!-- TEAM MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal">
-    <div class="modal-header">
-      <span class="modal-flag" id="m-flag"></span>
-      <div>
-        <div class="modal-team-name" id="m-name"></div>
-        <div class="modal-group" id="m-group"></div>
-      </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
-    </div>
-    <div class="modal-body" id="m-body"></div>
-  </div>
-</div>
-
-<footer>
-  ⚽ FIFA World Cup 2026™ সময়সূচি · তৈরি করেছেন <strong>Asadujjaman Niaz</strong><br>
-  সকল সময় বাংলাদেশ সময় (UTC+6) · তথ্য সূত্র: FIFA অফিসিয়াল
-</footer>
+<footer>⚽ FIFA World Cup 2026™ · তৈরি করেছেন <strong>Asadujjaman Niaz</strong> · সময়: বাংলাদেশ (UTC+6)</footer>
 
 <script>
-// ET (EDT, UTC-4 in summer) → Bangladesh (UTC+6) = +10 hours
-// We do pure UTC math to avoid browser timezone issues
-
+// ── TIME CONVERSION ──────────────────────────────────────────────
 function etToBD(dateStr, etH, etM) {
-  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const mo = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
   const [mon, day] = dateStr.split(' ');
-  // Build UTC timestamp treating the ET time as UTC-4 → add 4h to get UTC
-  const utcMs = Date.UTC(2026, months[mon], parseInt(day), etH + 4, etM, 0);
-  // Bangladesh = UTC+6 → add 6h
-  const bdMs = utcMs + (6 * 60 * 60 * 1000);
-  const bd = new Date(bdMs);
-
-  const daysBn = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
-  const monsBn = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
-
-  const h = bd.getUTCHours();
-  const mn = bd.getUTCMinutes().toString().padStart(2,'0');
-  let ampm;
-  if (h >= 5 && h < 12) ampm = 'সকাল';
-  else if (h >= 12 && h < 17) ampm = 'দুপুর';
-  else if (h >= 17 && h < 20) ampm = 'বিকাল';
-  else if (h >= 20 && h < 24) ampm = 'রাত';
-  else ampm = 'রাত'; // 0-4
-  const h12 = h % 12 || 12;
-
-  const bdDate = `${bd.getUTCDate()} ${monsBn[bd.getUTCMonth()]}`;
-  const dayBn = daysBn[bd.getUTCDay()];
-  return { time: `${h12}:${mn} ${ampm}`, date: bdDate, day: dayBn };
+  const utcMs = Date.UTC(2026, mo[mon], +day, etH+4, etM);
+  const bd = new Date(utcMs + 6*3600*1000);
+  const days = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+  const mons = ['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট'];
+  const h=bd.getUTCHours(), mn=bd.getUTCMinutes().toString().padStart(2,'0');
+  let label = h>=5&&h<12?'সকাল':h>=12&&h<17?'দুপুর':h>=17&&h<20?'বিকাল':'রাত';
+  const h12 = h%12||12;
+  return { time:`${h12}:${mn} ${label}`, date:`${bd.getUTCDate()} ${mons[bd.getUTCMonth()]}`, day:days[bd.getUTCDay()] };
 }
 
+// ── DATA ─────────────────────────────────────────────────────────
+// standings: [MP, W, D, L, GF, GA, Pts]
 const GROUPS = [
   { letter:'A', venue:'Mexico City / Guadalajara / Monterrey', teams:[
-    {name:'Mexico',flag:'🇲🇽',host:true},
-    {name:'South Africa',flag:'🇿🇦'},
-    {name:'South Korea',flag:'🇰🇷'},
-    {name:'Czechia',flag:'🇨🇿'}
+    {name:'Mexico',flag:'🇲🇽',host:true, st:[2,2,0,0,3,0,6]},
+    {name:'South Korea',flag:'🇰🇷',         st:[2,1,0,1,2,2,3]},
+    {name:'South Africa',flag:'🇿🇦',         st:[2,0,1,1,1,2,1]},
+    {name:'Czechia',flag:'🇨🇿',              st:[2,0,1,1,2,4,1]},
   ]},
-  { letter:'B', venue:'Toronto / Vancouver', teams:[
-    {name:'Canada',flag:'🇨🇦',host:true},
-    {name:'Bosnia & Herz.',flag:'🇧🇦'},
-    {name:'Qatar',flag:'🇶🇦'},
-    {name:'Switzerland',flag:'🇨🇭'}
+  { letter:'B', venue:'Toronto / Vancouver / San Francisco', teams:[
+    {name:'Canada',flag:'🇨🇦',host:true,  st:[2,1,1,0,7,1,4]},
+    {name:'Switzerland',flag:'🇨🇭',         st:[2,0,2,0,5,5,2]},
+    {name:'Bosnia & Herz.',flag:'🇧🇦',       st:[2,0,2,0,2,2,2]},
+    {name:'Qatar',flag:'🇶🇦',               st:[2,0,1,1,2,8,1]},
   ]},
-  { letter:'C', venue:'New York / Boston', teams:[
-    {name:'Brazil',flag:'🇧🇷'},
-    {name:'Morocco',flag:'🇲🇦'},
-    {name:'Haiti',flag:'🇭🇹'},
-    {name:'Scotland',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'}
+  { letter:'C', venue:'New York / Boston / Miami / Atlanta', teams:[
+    {name:'Brazil',flag:'🇧🇷',              st:[2,1,1,0,4,1,4]},
+    {name:'Scotland',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',              st:[2,1,1,0,2,1,4]},
+    {name:'Morocco',flag:'🇲🇦',             st:[2,0,2,0,2,2,2]},
+    {name:'Haiti',flag:'🇭🇹',               st:[2,0,0,2,0,4,0]},
   ]},
-  { letter:'D', venue:'Los Angeles / Seattle / Vancouver', teams:[
-    {name:'USA',flag:'🇺🇸',host:true},
-    {name:'Paraguay',flag:'🇵🇾'},
-    {name:'Australia',flag:'🇦🇺'},
-    {name:'Türkiye',flag:'🇹🇷'}
+  { letter:'D', venue:'Los Angeles / Seattle / Vancouver / San Francisco', teams:[
+    {name:'USA',flag:'🇺🇸',host:true,     st:[2,2,0,0,6,1,6]},
+    {name:'Australia',flag:'🇦🇺',           st:[2,1,0,1,2,2,3]},
+    {name:'Paraguay',flag:'🇵🇾',            st:[2,1,0,1,2,5,3]},
+    {name:'Türkiye',flag:'🇹🇷',             st:[2,0,0,2,0,2,0]},
   ]},
   { letter:'E', venue:'New York / Philadelphia', teams:[
-    {name:'Germany',flag:'🇩🇪'},
-    {name:'Ecuador',flag:'🇪🇨'},
-    {name:'Curaçao',flag:'🇨🇼'},
-    {name:"Côte d'Ivoire",flag:'🇨🇮'}
+    {name:'Germany',flag:'🇩🇪',             st:[2,2,0,0,9,2,6]},
+    {name:"Côte d'Ivoire",flag:'🇨🇮',        st:[2,1,0,1,2,2,3]},
+    {name:'Ecuador',flag:'🇪🇨',             st:[2,0,1,1,0,2,1]},
+    {name:'Curaçao',flag:'🇨🇼',             st:[2,0,1,1,1,6,1]},
   ]},
-  { letter:'F', venue:'Dallas / Houston / Kansas City', teams:[
-    {name:'Netherlands',flag:'🇳🇱'},
-    {name:'Sweden',flag:'🇸🇪'},
-    {name:'Japan',flag:'🇯🇵'},
-    {name:'Tunisia',flag:'🇹🇳'}
+  { letter:'F', venue:'Houston / Dallas / Kansas City', teams:[
+    {name:'Sweden',flag:'🇸🇪',              st:[2,1,1,0,7,3,4]},
+    {name:'Netherlands',flag:'🇳🇱',          st:[2,0,2,0,4,4,2]},
+    {name:'Japan',flag:'🇯🇵',               st:[2,0,2,0,4,4,2]},
+    {name:'Tunisia',flag:'🇹🇳',             st:[2,0,1,1,3,7,1]},
   ]},
   { letter:'G', venue:'Los Angeles / Seattle / Vancouver', teams:[
-    {name:'Belgium',flag:'🇧🇪'},
-    {name:'IR Iran',flag:'🇮🇷'},
-    {name:'Egypt',flag:'🇪🇬'},
-    {name:'New Zealand',flag:'🇳🇿'}
+    {name:'Belgium',flag:'🇧🇪',             st:[2,0,2,0,2,2,2]},
+    {name:'IR Iran',flag:'🇮🇷',             st:[2,0,2,0,3,3,2]},
+    {name:'Egypt',flag:'🇪🇬',              st:[2,0,2,0,2,2,2]},
+    {name:'New Zealand',flag:'🇳🇿',          st:[2,0,2,0,2,2,2]},
   ]},
-  { letter:'H', venue:'Miami / Atlanta / Guadalajara', teams:[
-    {name:'Spain',flag:'🇪🇸'},
-    {name:'Saudi Arabia',flag:'🇸🇦'},
-    {name:'Uruguay',flag:'🇺🇾'},
-    {name:'Cabo Verde',flag:'🇨🇻'}
+  { letter:'H', venue:'Atlanta / Miami / Houston / Guadalajara', teams:[
+    {name:'Spain',flag:'🇪🇸',              st:[2,1,1,0,3,0,4]},
+    {name:'Saudi Arabia',flag:'🇸🇦',         st:[2,0,2,0,2,2,2]},
+    {name:'Uruguay',flag:'🇺🇾',             st:[2,0,2,0,2,2,2]},
+    {name:'Cabo Verde',flag:'🇨🇻',           st:[2,0,1,1,1,4,1]},
   ]},
   { letter:'I', venue:'New York / Philadelphia / Boston / Toronto', teams:[
-    {name:'France',flag:'🇫🇷'},
-    {name:'Iraq',flag:'🇮🇶'},
-    {name:'Norway',flag:'🇳🇴'},
-    {name:'Senegal',flag:'🇸🇳'}
+    {name:'France',flag:'🇫🇷',              st:[1,1,0,0,3,1,3]},
+    {name:'Norway',flag:'🇳🇴',              st:[1,1,0,0,4,1,3]},
+    {name:'Senegal',flag:'🇸🇳',             st:[1,0,0,1,1,3,0]},
+    {name:'Iraq',flag:'🇮🇶',               st:[1,0,0,1,1,4,0]},
   ]},
   { letter:'J', venue:'Dallas / San Francisco / Kansas City', teams:[
-    {name:'Argentina',flag:'🇦🇷'},
-    {name:'Austria',flag:'🇦🇹'},
-    {name:'Jordan',flag:'🇯🇴'},
-    {name:'Algeria',flag:'🇩🇿'}
+    {name:'Argentina',flag:'🇦🇷',           st:[1,1,0,0,3,0,3]},
+    {name:'Austria',flag:'🇦🇹',             st:[1,1,0,0,3,1,3]},
+    {name:'Algeria',flag:'🇩🇿',             st:[1,0,0,1,0,3,0]},
+    {name:'Jordan',flag:'🇯🇴',              st:[1,0,0,1,1,3,0]},
   ]},
-  { letter:'K', venue:'Houston / Guadalajara / Atlanta', teams:[
-    {name:'Portugal',flag:'🇵🇹'},
-    {name:'Colombia',flag:'🇨🇴'},
-    {name:'Congo DR',flag:'🇨🇩'},
-    {name:'Uzbekistan',flag:'🇺🇿'}
+  { letter:'K', venue:'Houston / Guadalajara / Atlanta / Mexico City', teams:[
+    {name:'Colombia',flag:'🇨🇴',            st:[1,1,0,0,3,1,3]},
+    {name:'Portugal',flag:'🇵🇹',            st:[1,0,1,0,1,1,1]},
+    {name:'Congo DR',flag:'🇨🇩',            st:[1,0,1,0,1,1,1]},
+    {name:'Uzbekistan',flag:'🇺🇿',           st:[1,0,0,1,1,3,0]},
   ]},
-  { letter:'L', venue:'Boston / New York / Philadelphia / Toronto', teams:[
-    {name:'England',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},
-    {name:'Ghana',flag:'🇬🇭'},
-    {name:'Panama',flag:'🇵🇦'},
-    {name:'Croatia',flag:'🇭🇷'}
+  { letter:'L', venue:'Boston / Dallas / Philadelphia / Toronto', teams:[
+    {name:'England',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',              st:[1,1,0,0,4,2,3]},
+    {name:'Ghana',flag:'🇬🇭',               st:[1,1,0,0,1,0,3]},
+    {name:'Croatia',flag:'🇭🇷',             st:[1,0,0,1,2,4,0]},
+    {name:'Panama',flag:'🇵🇦',              st:[1,0,0,1,0,1,0]},
   ]},
 ];
 
-// MATCHES: ET kickoff times verified from CBS Sports / ESPN / Yahoo Sports official schedule
-// ET = UTC-4 (EDT in summer). BD = ET + 10h
+// Sort teams by points desc, then GD, then GF
+function sortedTeams(teams) {
+  return [...teams].sort((a,b)=>{
+    const pa=a.st[6], pb=b.st[6];
+    if(pb!==pa) return pb-pa;
+    const gda=(a.st[4]-a.st[5]), gdb=(b.st[4]-b.st[5]);
+    if(gdb!==gda) return gdb-gda;
+    return b.st[4]-a.st[4];
+  });
+}
+
+// Qualified teams (already through)
+const QUALIFIED = new Set(['Mexico','USA','Germany','Brazil','Colombia']);
+// Likely qualified (top of group with 4+ pts after 2 games)
+const LIKELY = new Set(['Canada','Scotland','Spain','England','Ghana','France','Norway','Argentina','Austria','Sweden','Australia','Paraguay']);
+
+const FLAGS = {};
+GROUPS.forEach(g=>g.teams.forEach(t=>FLAGS[t.name]=t.flag));
+function f(n){ return FLAGS[n]||'🏳️'; }
+
+// All matches with correct ET times (CBS/ESPN verified)
 const MATCHES = [
-  // GROUP A — Jun 11, 15, 19 (ET times: 3pm, 9pm / 12pm, 3pm / 9pm, 9pm)
+  // A
   {date:'Jun 11',etH:15,etM:0,group:'A',home:'Mexico',away:'South Africa',score:'2-0',venue:'Estadio Azteca, Mexico City'},
   {date:'Jun 11',etH:21,etM:0,group:'A',home:'South Korea',away:'Czechia',score:'2-1',venue:'Estadio Akron, Guadalajara'},
-  {date:'Jun 15',etH:12,etM:0,group:'A',home:'Mexico',away:'South Korea',score:'1-0',venue:'Estadio BBVA, Monterrey'},
-  {date:'Jun 15',etH:15,etM:0,group:'A',home:'South Africa',away:'Czechia',score:'1-1',venue:'Estadio Akron, Guadalajara'},
+  {date:'Jun 18',etH:12,etM:0,group:'A',home:'Czechia',away:'South Africa',score:'1-1',venue:'Mercedes-Benz Stadium, Atlanta'},
+  {date:'Jun 18',etH:15,etM:0,group:'A',home:'Mexico',away:'South Korea',score:'1-0',venue:'Estadio Akron, Guadalajara'},
   {date:'Jun 24',etH:21,etM:0,group:'A',home:'Czechia',away:'Mexico',score:null,venue:'Estadio Azteca, Mexico City'},
   {date:'Jun 24',etH:21,etM:0,group:'A',home:'South Africa',away:'South Korea',score:null,venue:'Estadio BBVA, Monterrey'},
-  // GROUP B — Jun 12, 16, 18 (CBS: 3pm, 9pm / 12pm, 9pm / 3pm, 3pm)
+  // B
   {date:'Jun 12',etH:15,etM:0,group:'B',home:'Canada',away:'Bosnia & Herz.',score:'1-1',venue:'BMO Field, Toronto'},
   {date:'Jun 12',etH:21,etM:0,group:'B',home:'Qatar',away:'Switzerland',score:'1-1',venue:"Levi's Stadium, San Francisco"},
   {date:'Jun 16',etH:12,etM:0,group:'B',home:'Canada',away:'Qatar',score:'6-0',venue:'BC Place, Vancouver'},
   {date:'Jun 18',etH:21,etM:0,group:'B',home:'Switzerland',away:'Bosnia & Herz.',score:'4-1',venue:'SoFi Stadium, Los Angeles'},
   {date:'Jun 24',etH:15,etM:0,group:'B',home:'Switzerland',away:'Canada',score:null,venue:'BC Place, Vancouver'},
   {date:'Jun 24',etH:15,etM:0,group:'B',home:'Bosnia & Herz.',away:'Qatar',score:null,venue:'Lumen Field, Seattle'},
-  // GROUP C — Jun 12, 13, 17, 21
+  // C
   {date:'Jun 13',etH:12,etM:0,group:'C',home:'Brazil',away:'Morocco',score:'1-1',venue:'MetLife Stadium, New York'},
   {date:'Jun 13',etH:18,etM:0,group:'C',home:'Haiti',away:'Scotland',score:'0-1',venue:'Gillette Stadium, Boston'},
-  {date:'Jun 17',etH:18,etM:0,group:'C',home:'Brazil',away:'Haiti',score:'3-0',venue:'Lincoln Financial Field, Philadelphia'},
-  {date:'Jun 17',etH:21,etM:0,group:'C',home:'Scotland',away:'Morocco',score:'1-1',venue:'Gillette Stadium, Boston'},
+  {date:'Jun 19',etH:15,etM:0,group:'C',home:'Scotland',away:'Morocco',score:'0-1',venue:'Gillette Stadium, Boston'},
+  {date:'Jun 19',etH:18,etM:0,group:'C',home:'Brazil',away:'Haiti',score:'3-0',venue:'Lincoln Financial Field, Philadelphia'},
   {date:'Jun 24',etH:18,etM:0,group:'C',home:'Scotland',away:'Brazil',score:null,venue:'Hard Rock Stadium, Miami'},
   {date:'Jun 24',etH:18,etM:0,group:'C',home:'Morocco',away:'Haiti',score:null,venue:'Mercedes-Benz Stadium, Atlanta'},
-  // GROUP D — Jun 12, 13, 17, 18, 25
+  // D
   {date:'Jun 12',etH:21,etM:0,group:'D',home:'USA',away:'Paraguay',score:'4-1',venue:'SoFi Stadium, Los Angeles'},
   {date:'Jun 13',etH:21,etM:0,group:'D',home:'Australia',away:'Türkiye',score:'2-0',venue:'BC Place, Vancouver'},
   {date:'Jun 19',etH:21,etM:0,group:'D',home:'USA',away:'Australia',score:'2-0',venue:'Lumen Field, Seattle'},
-  {date:'Jun 19',etH:18,etM:0,group:'D',home:'Türkiye',away:'Paraguay',score:null,venue:'SoFi Stadium, Los Angeles'},
+  {date:'Jun 19',etH:18,etM:0,group:'D',home:'Türkiye',away:'Paraguay',score:'0-1',venue:'SoFi Stadium, Los Angeles'},
   {date:'Jun 25',etH:22,etM:0,group:'D',home:'Türkiye',away:'USA',score:null,venue:'SoFi Stadium, Los Angeles'},
   {date:'Jun 25',etH:22,etM:0,group:'D',home:'Paraguay',away:'Australia',score:null,venue:"Levi's Stadium, San Francisco"},
-  // GROUP E — Jun 14, 18, 25 (CBS: 3pm,12pm / 6pm,3pm / 4pm,4pm)
+  // E
   {date:'Jun 14',etH:15,etM:0,group:'E',home:'Germany',away:'Curaçao',score:'7-1',venue:'MetLife Stadium, New York'},
   {date:'Jun 14',etH:12,etM:0,group:'E',home:"Côte d'Ivoire",away:'Ecuador',score:'1-0',venue:'Lincoln Financial Field, Philadelphia'},
-  {date:'Jun 18',etH:18,etM:0,group:'E',home:'Germany',away:'Ecuador',score:null,venue:'MetLife Stadium, New York'},
-  {date:'Jun 18',etH:15,etM:0,group:'E',home:"Côte d'Ivoire",away:'Curaçao',score:null,venue:'Lincoln Financial Field, Philadelphia'},
+  {date:'Jun 20',etH:15,etM:0,group:'E',home:'Germany',away:"Côte d'Ivoire",score:'2-1',venue:'MetLife Stadium, New York'},
+  {date:'Jun 20',etH:18,etM:0,group:'E',home:'Ecuador',away:'Curaçao',score:'0-0',venue:'Lincoln Financial Field, Philadelphia'},
   {date:'Jun 25',etH:16,etM:0,group:'E',home:'Ecuador',away:'Germany',score:null,venue:'MetLife Stadium, New York'},
   {date:'Jun 25',etH:16,etM:0,group:'E',home:'Curaçao',away:"Côte d'Ivoire",score:null,venue:'Lincoln Financial Field, Philadelphia'},
-  // GROUP F — Jun 14, 20, 25 (CBS: 12pm,9pm / 12pm,9pm / 7pm,7pm)
+  // F
   {date:'Jun 14',etH:12,etM:0,group:'F',home:'Netherlands',away:'Sweden',score:'2-2',venue:'NRG Stadium, Houston'},
   {date:'Jun 14',etH:21,etM:0,group:'F',home:'Japan',away:'Tunisia',score:'2-2',venue:'AT&T Stadium, Dallas'},
-  {date:'Jun 20',etH:12,etM:0,group:'F',home:'Netherlands',away:'Japan',score:null,venue:'AT&T Stadium, Dallas'},
+  {date:'Jun 20',etH:12,etM:0,group:'F',home:'Netherlands',away:'Japan',score:'2-2',venue:'AT&T Stadium, Dallas'},
   {date:'Jun 20',etH:21,etM:0,group:'F',home:'Sweden',away:'Tunisia',score:'5-1',venue:'Arrowhead Stadium, Kansas City'},
   {date:'Jun 25',etH:19,etM:0,group:'F',home:'Japan',away:'Sweden',score:null,venue:'AT&T Stadium, Dallas'},
   {date:'Jun 25',etH:19,etM:0,group:'F',home:'Tunisia',away:'Netherlands',score:null,venue:'Arrowhead Stadium, Kansas City'},
-  // GROUP G — Jun 15, 19, 23 (CBS: 3pm,9pm / 9pm,9pm / 3pm,3pm)
+  // G
   {date:'Jun 15',etH:15,etM:0,group:'G',home:'Belgium',away:'IR Iran',score:'1-1',venue:'SoFi Stadium, Los Angeles'},
-  {date:'Jun 15',etH:21,etM:0,group:'G',home:'New Zealand',away:'Egypt',score:null,venue:'Lumen Field, Seattle'},
+  {date:'Jun 15',etH:21,etM:0,group:'G',home:'New Zealand',away:'Egypt',score:'2-2',venue:'Lumen Field, Seattle'},
   {date:'Jun 21',etH:21,etM:0,group:'G',home:'New Zealand',away:'Belgium',score:null,venue:'BC Place, Vancouver'},
   {date:'Jun 21',etH:21,etM:0,group:'G',home:'Egypt',away:'IR Iran',score:null,venue:'Lumen Field, Seattle'},
   {date:'Jun 23',etH:15,etM:0,group:'G',home:'Belgium',away:'Egypt',score:null,venue:'SoFi Stadium, Los Angeles'},
   {date:'Jun 23',etH:15,etM:0,group:'G',home:'IR Iran',away:'New Zealand',score:null,venue:'BC Place, Vancouver'},
-  // GROUP H — Jun 15, 21, 26 (CBS: 12pm,6pm / 12pm,6pm / 8pm,8pm)
+  // H
   {date:'Jun 15',etH:12,etM:0,group:'H',home:'Spain',away:'Cabo Verde',score:'0-0',venue:'Mercedes-Benz Stadium, Atlanta'},
   {date:'Jun 15',etH:18,etM:0,group:'H',home:'Saudi Arabia',away:'Uruguay',score:'1-1',venue:'Hard Rock Stadium, Miami'},
-  {date:'Jun 21',etH:12,etM:0,group:'H',home:'Spain',away:'Saudi Arabia',score:null,venue:'Mercedes-Benz Stadium, Atlanta'},
+  {date:'Jun 21',etH:12,etM:0,group:'H',home:'Spain',away:'Saudi Arabia',score:'2-1',venue:'Mercedes-Benz Stadium, Atlanta'},
   {date:'Jun 21',etH:18,etM:0,group:'H',home:'Uruguay',away:'Cabo Verde',score:null,venue:'Hard Rock Stadium, Miami'},
   {date:'Jun 26',etH:20,etM:0,group:'H',home:'Cabo Verde',away:'Saudi Arabia',score:null,venue:'NRG Stadium, Houston'},
   {date:'Jun 26',etH:20,etM:0,group:'H',home:'Uruguay',away:'Spain',score:null,venue:'Estadio Akron, Guadalajara'},
-  // GROUP I — Jun 16, 20, 26 (CBS: 9pm,6pm / 9pm,6pm / 3pm,3pm)
+  // I
   {date:'Jun 16',etH:21,etM:0,group:'I',home:'France',away:'Senegal',score:'3-1',venue:'MetLife Stadium, New York'},
   {date:'Jun 16',etH:17,etM:0,group:'I',home:'Norway',away:'Iraq',score:'4-1',venue:'Gillette Stadium, Boston'},
   {date:'Jun 22',etH:17,etM:0,group:'I',home:'France',away:'Iraq',score:null,venue:'Lincoln Financial Field, Philadelphia'},
   {date:'Jun 22',etH:20,etM:0,group:'I',home:'Norway',away:'Senegal',score:null,venue:'MetLife Stadium, New York'},
   {date:'Jun 26',etH:15,etM:0,group:'I',home:'Norway',away:'France',score:null,venue:'Gillette Stadium, Boston'},
   {date:'Jun 26',etH:15,etM:0,group:'I',home:'Senegal',away:'Iraq',score:null,venue:'BMO Field, Toronto'},
-  // GROUP J — Jun 16, 22, 27 (CBS: 9pm ET / 1pm ET / 10pm ET)
+  // J
   {date:'Jun 16',etH:21,etM:0,group:'J',home:'Argentina',away:'Algeria',score:'3-0',venue:'Arrowhead Stadium, Kansas City'},
-  {date:'Jun 16',etH:21,etM:0,group:'J',home:'Austria',away:'Jordan',score:'3-1',venue:"Levi's Stadium, San Francisco"},
+  {date:'Jun 17',etH:21,etM:0,group:'J',home:'Austria',away:'Jordan',score:'3-1',venue:"Levi's Stadium, San Francisco"},
   {date:'Jun 22',etH:13,etM:0,group:'J',home:'Argentina',away:'Austria',score:null,venue:'AT&T Stadium, Dallas'},
   {date:'Jun 22',etH:23,etM:0,group:'J',home:'Jordan',away:'Algeria',score:null,venue:"Levi's Stadium, San Francisco"},
   {date:'Jun 27',etH:22,etM:0,group:'J',home:'Algeria',away:'Austria',score:null,venue:'Arrowhead Stadium, Kansas City'},
   {date:'Jun 27',etH:22,etM:0,group:'J',home:'Jordan',away:'Argentina',score:null,venue:'AT&T Stadium, Dallas'},
-  // GROUP K — Jun 17, 23, 27 (CBS: 1pm,10pm / 1pm,10pm / 7:30pm,7:30pm)
+  // K
   {date:'Jun 17',etH:13,etM:0,group:'K',home:'Portugal',away:'Congo DR',score:'1-1',venue:'NRG Stadium, Houston'},
   {date:'Jun 17',etH:22,etM:0,group:'K',home:'Colombia',away:'Uzbekistan',score:'3-1',venue:'Estadio Azteca, Mexico City'},
   {date:'Jun 23',etH:13,etM:0,group:'K',home:'Portugal',away:'Colombia',score:null,venue:'NRG Stadium, Houston'},
   {date:'Jun 23',etH:22,etM:0,group:'K',home:'Congo DR',away:'Uzbekistan',score:null,venue:'Mercedes-Benz Stadium, Atlanta'},
   {date:'Jun 27',etH:19,etM:30,group:'K',home:'Colombia',away:'Portugal',score:null,venue:'Hard Rock Stadium, Miami'},
   {date:'Jun 27',etH:19,etM:30,group:'K',home:'Congo DR',away:'Uzbekistan',score:null,venue:'Mercedes-Benz Stadium, Atlanta'},
-  // GROUP L — Jun 17, 21, 27 (CBS: 8pm,8pm / 5pm,7pm / 5pm,5pm)
+  // L
   {date:'Jun 17',etH:20,etM:0,group:'L',home:'England',away:'Croatia',score:'4-2',venue:'AT&T Stadium, Dallas'},
   {date:'Jun 17',etH:20,etM:0,group:'L',home:'Ghana',away:'Panama',score:'1-0',venue:'BMO Field, Toronto'},
   {date:'Jun 23',etH:16,etM:0,group:'L',home:'England',away:'Ghana',score:null,venue:'Gillette Stadium, Boston'},
@@ -526,215 +468,221 @@ const MATCHES = [
   {date:'Jun 27',etH:17,etM:0,group:'L',home:'Croatia',away:'Ghana',score:null,venue:'Lincoln Financial Field, Philadelphia'},
 ];
 
-// Flag lookup
-const FLAGS = {
-  'Mexico':'🇲🇽','South Africa':'🇿🇦','South Korea':'🇰🇷','Czechia':'🇨🇿',
-  'Canada':'🇨🇦','Bosnia & Herz.':'🇧🇦','Qatar':'🇶🇦','Switzerland':'🇨🇭',
-  'Brazil':'🇧🇷','Morocco':'🇲🇦','Haiti':'🇭🇹','Scotland':'🏴󠁧󠁢󠁳󠁣󠁴󠁿',
-  'USA':'🇺🇸','Paraguay':'🇵🇾','Australia':'🇦🇺','Türkiye':'🇹🇷',
-  'Germany':'🇩🇪','Ecuador':'🇪🇨','Curaçao':'🇨🇼',"Côte d'Ivoire":'🇨🇮',
-  'Netherlands':'🇳🇱','Sweden':'🇸🇪','Japan':'🇯🇵','Tunisia':'🇹🇳',
-  'Belgium':'🇧🇪','IR Iran':'🇮🇷','Egypt':'🇪🇬','New Zealand':'🇳🇿',
-  'Spain':'🇪🇸','Saudi Arabia':'🇸🇦','Uruguay':'🇺🇾','Cabo Verde':'🇨🇻',
-  'France':'🇫🇷','Iraq':'🇮🇶','Norway':'🇳🇴','Senegal':'🇸🇳',
-  'Argentina':'🇦🇷','Austria':'🇦🇹','Jordan':'🇯🇴','Algeria':'🇩🇿',
-  'Portugal':'🇵🇹','Colombia':'🇨🇴','Congo DR':'🇨🇩','Uzbekistan':'🇺🇿',
-  'England':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Ghana':'🇬🇭','Panama':'🇵🇦','Croatia':'🇭🇷',
+// Knockout confirmed teams (will auto-update as group stage progresses)
+const KO_CONFIRMED = {
+  'W-A': QUALIFIED.has('Mexico') ? 'Mexico 🇲🇽' : null,
+  'W-D': QUALIFIED.has('USA') ? 'USA 🇺🇸' : null,
+  'W-E': QUALIFIED.has('Germany') ? 'Germany 🇩🇪' : null,
 };
 
-function f(name){ return FLAGS[name]||'🏳️'; }
-
-function matchBD(m){
-  return etToBD(m.date, m.etH, m.etM);
-}
-
-// RENDER GROUPS
-function renderGroups(){
-  document.getElementById('groups-container').innerHTML = GROUPS.map(g=>`
-    <div class="group-card">
-      <div class="group-header">
-        <div class="group-letter">${g.letter}</div>
-        <div>
-          <div style="font-size:0.78rem;font-weight:600">Group ${g.letter}</div>
-          <div class="group-venue">${g.venue}</div>
-        </div>
-      </div>
-      ${g.teams.map(t=>`
-        <div class="team-row" onclick="openTeamModal('${t.name}','${g.letter}')">
-          <span class="team-flag">${t.flag}</span>
-          <span class="team-name">${t.name}</span>
-          ${t.host?'<span class="host-badge">HOST</span>':''}
-          <span style="color:var(--muted);font-size:0.7rem">›</span>
-        </div>
-      `).join('')}
-      <div class="click-hint">👆 দলে ক্লিক করুন সূচি দেখতে</div>
-    </div>
-  `).join('');
-}
-
-// TEAM MODAL
-function openTeamModal(teamName, groupLetter){
-  const group = GROUPS.find(g=>g.letter===groupLetter);
-  const team = group.teams.find(t=>t.name===teamName);
-  const teamMatches = MATCHES.filter(m=>m.home===teamName||m.away===teamName);
-
-  document.getElementById('m-flag').textContent = team.flag;
-  document.getElementById('m-name').textContent = teamName;
-  document.getElementById('m-group').textContent = `Group ${groupLetter} · ${group.venue}`;
-
-  const body = document.getElementById('m-body');
-
-  body.innerHTML = `
-    <div class="modal-section-title">🏟 গ্রুপ স্টেজ ম্যাচ — বাংলাদেশ সময়</div>
-    ${teamMatches.map(m=>{
-      const bd = matchBD(m);
-      const isHome = m.home===teamName;
-      const opp = isHome?m.away:m.home;
-      const oppFlag = f(opp);
-      return `
-        <div class="match-item">
-          <div class="match-teams">
-            <div class="match-t">
-              <span>${team.flag}</span>
-              <span>${teamName}</span>
-            </div>
-            <div class="score-box">${m.score||'VS'}</div>
-            <div class="match-t right">
-              <span>${oppFlag}</span>
-              <span>${opp}</span>
-            </div>
-          </div>
-          <div class="match-meta">
-            <span class="meta-tag meta-date">📅 ${bd.date} (${bd.day})</span>
-            <span class="meta-tag meta-time">🕐 ${bd.time} BST</span>
-            ${m.score?`<span class="meta-tag meta-result">✅ ফলাফল</span>`:`<span class="meta-tag meta-tbd">⏳ আসন্ন</span>`}
-            <span class="meta-tag meta-venue">📍 ${m.venue}</span>
-          </div>
-        </div>
-      `;
-    }).join('')}
-    <div class="modal-section-title" style="margin-top:1.2rem">⚡ নকআউট পথ</div>
-    <div class="ko-note">
-      গ্রুপ ${groupLetter} থেকে শীর্ষ ২টি দল নকআউটে যাবে।<br>
-      ১ম স্থান → Round of 32 নির্দিষ্ট ম্যাচ<br>
-      ২য় স্থান → Round of 32 নির্দিষ্ট ম্যাচ<br>
-      তৃতীয় স্থান → সেরা ৮ তৃতীয়র মধ্যে থাকলেও উঠতে পারবে।
-    </div>
-  `;
-
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-
-function closeModalBtn(){
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow='';
-}
-function closeModal(e){
-  if(e.target===document.getElementById('modal-overlay')) closeModalBtn();
-}
-
-// FULL MATCHES TAB
-let activeFilter = 'All';
-function renderMatchesList(filter){
-  const dates = ['All',...new Set(MATCHES.map(m=>m.date))];
-  document.getElementById('date-filter').innerHTML = dates.map(d=>
-    `<button class="fbtn ${d===activeFilter?'active':''}" onclick="setFilter('${d}')">${d==='All'?'সব তারিখ':d}</button>`
-  ).join('');
-
-  const list = filter&&filter!=='All'?MATCHES.filter(m=>m.date===filter):MATCHES;
-  document.getElementById('matches-list').innerHTML = list.map(m=>{
-    const bd = matchBD(m);
-    return `
-      <div class="full-match">
-        <div class="fm-team">
-          <span>${f(m.home)}</span>
-          <span>${m.home}</span>
-        </div>
-        <div class="fm-mid">
-          <div class="fm-group">GRP ${m.group}</div>
-          <div class="fm-score">${m.score||'VS'}</div>
-          <div class="fm-date">${bd.date} · ${bd.time}</div>
-          <div class="fm-venue">${m.venue.split(',')[0]}</div>
-        </div>
-        <div class="fm-team r">
-          <span>${f(m.away)}</span>
-          <span>${m.away}</span>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-function setFilter(d){
-  activeFilter=d;
-  renderMatchesList(d==='All'?null:d);
-}
-
-// KNOCKOUT
 const KO = [
-  {round:'রাউন্ড অব ৩২ (২৮ জুন – ৩ জুলাই)',matches:[
-    {date:'Jun 28',etH:12,etM:0,t1:'1A',t2:'3rd C/E/F/H/I',venue:'MetLife Stadium, New York'},
-    {date:'Jun 28',etH:15,etM:0,t1:'1B',t2:'2A',venue:'BC Place, Vancouver'},
-    {date:'Jun 28',etH:21,etM:0,t1:'1C',t2:'3rd A/B/D/F/G/J',venue:'Gillette Stadium, Boston'},
-    {date:'Jun 29',etH:12,etM:0,t1:'1D',t2:'2C',venue:'SoFi Stadium, Los Angeles'},
-    {date:'Jun 29',etH:15,etM:0,t1:'1E',t2:'3rd B/C/D/K/L',venue:'MetLife Stadium, New York'},
-    {date:'Jun 29',etH:18,etM:0,t1:'1F',t2:'2E',venue:'AT&T Stadium, Dallas'},
-    {date:'Jun 30',etH:12,etM:0,t1:'1G',t2:'3rd I/J/K/L',venue:'BC Place, Vancouver'},
-    {date:'Jun 30',etH:15,etM:0,t1:'1H',t2:'2G',venue:'Hard Rock Stadium, Miami'},
-    {date:'Jun 30',etH:18,etM:0,t1:'1I',t2:'2H',venue:'Lincoln Financial, Philadelphia'},
-    {date:'Jun 30',etH:21,etM:0,t1:'1J',t2:'2I',venue:'AT&T Stadium, Dallas'},
-    {date:'Jul 1',etH:12,etM:0,t1:'1K',t2:'2J',venue:'NRG Stadium, Houston'},
-    {date:'Jul 1',etH:15,etM:0,t1:'1L',t2:'2K',venue:'BMO Field, Toronto'},
-    {date:'Jul 2',etH:12,etM:0,t1:'2B',t2:'2F',venue:'Mercedes-Benz Stadium, Atlanta'},
-    {date:'Jul 2',etH:21,etM:0,t1:'2D',t2:'2L',venue:'Estadio Azteca, Mexico City'},
-    {date:'Jul 3',etH:12,etM:0,t1:'সেরা ৩য় (১)',t2:'Winner M1',venue:'MetLife Stadium, New York'},
-    {date:'Jul 3',etH:21,etM:0,t1:'সেরা ৩য় (২)',t2:'Winner M2',venue:"Levi's Stadium, San Francisco"},
+  {round:'রাউন্ড অব ৩২ (২৮ জুন – ৩ জুলাই)', matches:[
+    {date:'Jun 28',etH:15,etM:0,t1:{label:'Group A 1st',team:'Mexico',confirmed:true},t2:{label:'Group B 2nd'},venue:'SoFi Stadium, Los Angeles'},
+    {date:'Jun 29',etH:13,etM:0,t1:{label:'Group C 1st'},t2:{label:'Group F 2nd'},venue:'NRG Stadium, Houston'},
+    {date:'Jun 29',etH:16,etM:30,t1:{label:'Group E 1st',team:'Germany',confirmed:true},t2:{label:'3rd Best (A/B/C/D/F)'},venue:'Gillette Stadium, Boston'},
+    {date:'Jun 29',etH:21,etM:0,t1:{label:'Group F 1st'},t2:{label:'Group C 2nd'},venue:'Estadio BBVA, Monterrey'},
+    {date:'Jun 30',etH:13,etM:0,t1:{label:'Group E 2nd'},t2:{label:'Group I 2nd'},venue:'AT&T Stadium, Dallas'},
+    {date:'Jun 30',etH:17,etM:0,t1:{label:'Group I 1st'},t2:{label:'3rd Best (C/D/F/G/H)'},venue:'Lincoln Financial, Philadelphia'},
+    {date:'Jun 30',etH:21,etM:0,t1:{label:'Group A 2nd'},t2:{label:'3rd Best (C/E/F/H/I)'},venue:'MetLife Stadium, New York'},
+    {date:'Jul 1',etH:12,etM:0,t1:{label:'Group L 1st'},t2:{label:'3rd Best (E/H/I/J/K)'},venue:'BMO Field, Toronto'},
+    {date:'Jul 1',etH:16,etM:0,t1:{label:'Group G 1st'},t2:{label:'3rd Best (A/E/H/I/J)'},venue:'BC Place, Vancouver'},
+    {date:'Jul 1',etH:20,etM:0,t1:{label:'Group D 1st',team:'USA',confirmed:true},t2:{label:'3rd Best (B/E/F/I/J)'},venue:'SoFi Stadium, Los Angeles'},
+    {date:'Jul 2',etH:15,etM:0,t1:{label:'Group H 1st'},t2:{label:'Group J 2nd'},venue:'Hard Rock Stadium, Miami'},
+    {date:'Jul 2',etH:19,etM:0,t1:{label:'Group K 2nd'},t2:{label:'Group L 2nd'},venue:'Arrowhead Stadium, Kansas City'},
+    {date:'Jul 2',etH:23,etM:0,t1:{label:'Group B 1st'},t2:{label:'3rd Best (E/F/G/I/J)'},venue:'AT&T Stadium, Dallas'},
+    {date:'Jul 3',etH:14,etM:0,t1:{label:'Group D 2nd'},t2:{label:'Group G 2nd'},venue:'Gillette Stadium, Boston'},
+    {date:'Jul 3',etH:18,etM:0,t1:{label:'Group J 1st'},t2:{label:'Group H 2nd'},venue:'Hard Rock Stadium, Miami'},
+    {date:'Jul 3',etH:23,etM:0,t1:{label:'Group K 1st'},t2:{label:'Group B 2nd / alt'},venue:'Mercedes-Benz Stadium, Atlanta'},
   ]},
-  {round:'রাউন্ড অব ১৬ (৫–৮ জুলাই)',matches:[
-    {date:'Jul 5',etH:12,etM:0,t1:'R32 জয়ী ১',t2:'R32 জয়ী ২',venue:'MetLife Stadium, New York'},
-    {date:'Jul 5',etH:21,etM:0,t1:'R32 জয়ী ৩',t2:'R32 জয়ী ৪',venue:'AT&T Stadium, Dallas'},
-    {date:'Jul 6',etH:12,etM:0,t1:'R32 জয়ী ৫',t2:'R32 জয়ী ৬',venue:'BC Place, Vancouver'},
-    {date:'Jul 6',etH:21,etM:0,t1:'R32 জয়ী ৭',t2:'R32 জয়ী ৮',venue:'Gillette Stadium, Boston'},
-    {date:'Jul 7',etH:12,etM:0,t1:'R32 জয়ী ৯',t2:'R32 জয়ী ১০',venue:'SoFi Stadium, Los Angeles'},
-    {date:'Jul 7',etH:21,etM:0,t1:'R32 জয়ী ১১',t2:'R32 জয়ী ১২',venue:'Hard Rock Stadium, Miami'},
-    {date:'Jul 8',etH:12,etM:0,t1:'R32 জয়ী ১৩',t2:'R32 জয়ী ১৪',venue:'NRG Stadium, Houston'},
-    {date:'Jul 8',etH:21,etM:0,t1:'R32 জয়ী ১৫',t2:'R32 জয়ী ১৬',venue:'MetLife Stadium, New York'},
+  {round:'রাউন্ড অব ১৬ (৫–৮ জুলাই)', matches:[
+    {date:'Jul 5',etH:15,etM:0,t1:{label:'R32 জয়ী ১'},t2:{label:'R32 জয়ী ২'},venue:'MetLife Stadium, New York'},
+    {date:'Jul 5',etH:21,etM:0,t1:{label:'R32 জয়ী ৩'},t2:{label:'R32 জয়ী ৪'},venue:'AT&T Stadium, Dallas'},
+    {date:'Jul 6',etH:15,etM:0,t1:{label:'R32 জয়ী ৫'},t2:{label:'R32 জয়ী ৬'},venue:'BC Place, Vancouver'},
+    {date:'Jul 6',etH:21,etM:0,t1:{label:'R32 জয়ী ৭'},t2:{label:'R32 জয়ী ৮'},venue:'Gillette Stadium, Boston'},
+    {date:'Jul 7',etH:15,etM:0,t1:{label:'R32 জয়ী ৯'},t2:{label:'R32 জয়ী ১০'},venue:'SoFi Stadium, Los Angeles'},
+    {date:'Jul 7',etH:21,etM:0,t1:{label:'R32 জয়ী ১১'},t2:{label:'R32 জয়ী ১২'},venue:'Hard Rock Stadium, Miami'},
+    {date:'Jul 8',etH:15,etM:0,t1:{label:'R32 জয়ী ১৩'},t2:{label:'R32 জয়ী ১৪'},venue:'NRG Stadium, Houston'},
+    {date:'Jul 8',etH:21,etM:0,t1:{label:'R32 জয়ী ১৫'},t2:{label:'R32 জয়ী ১৬'},venue:'MetLife Stadium, New York'},
   ]},
-  {round:'কোয়ার্টার ফাইনাল (১১–১২ জুলাই)',matches:[
-    {date:'Jul 11',etH:15,etM:0,t1:'R16 জয়ী ১',t2:'R16 জয়ী ২',venue:'MetLife Stadium, New York'},
-    {date:'Jul 11',etH:21,etM:0,t1:'R16 জয়ী ৩',t2:'R16 জয়ী ৪',venue:'AT&T Stadium, Dallas'},
-    {date:'Jul 12',etH:15,etM:0,t1:'R16 জয়ী ৫',t2:'R16 জয়ী ৬',venue:'Hard Rock Stadium, Miami'},
-    {date:'Jul 12',etH:21,etM:0,t1:'R16 জয়ী ৭',t2:'R16 জয়ী ৮',venue:'SoFi Stadium, Los Angeles'},
+  {round:'কোয়ার্টার ফাইনাল (১১–১২ জুলাই)', matches:[
+    {date:'Jul 11',etH:15,etM:0,t1:{label:'R16 জয়ী ১'},t2:{label:'R16 জয়ী ২'},venue:'MetLife Stadium, New York'},
+    {date:'Jul 11',etH:21,etM:0,t1:{label:'R16 জয়ী ৩'},t2:{label:'R16 জয়ী ৪'},venue:'AT&T Stadium, Dallas'},
+    {date:'Jul 12',etH:15,etM:0,t1:{label:'R16 জয়ী ৫'},t2:{label:'R16 জয়ী ৬'},venue:'Hard Rock Stadium, Miami'},
+    {date:'Jul 12',etH:21,etM:0,t1:{label:'R16 জয়ী ৭'},t2:{label:'R16 জয়ী ৮'},venue:'SoFi Stadium, Los Angeles'},
   ]},
-  {round:'সেমি ফাইনাল (১৫–১৬ জুলাই)',matches:[
-    {date:'Jul 15',etH:15,etM:0,t1:'QF জয়ী ১',t2:'QF জয়ী ২',venue:'MetLife Stadium, New York'},
-    {date:'Jul 16',etH:15,etM:0,t1:'QF জয়ী ৩',t2:'QF জয়ী ৪',venue:'AT&T Stadium, Dallas'},
+  {round:'সেমি ফাইনাল (১৫–১৬ জুলাই)', matches:[
+    {date:'Jul 15',etH:15,etM:0,t1:{label:'QF জয়ী ১'},t2:{label:'QF জয়ী ২'},venue:'MetLife Stadium, New York'},
+    {date:'Jul 16',etH:15,etM:0,t1:{label:'QF জয়ী ৩'},t2:{label:'QF জয়ী ৪'},venue:'AT&T Stadium, Dallas'},
   ]},
-  {round:'🏆 ফাইনাল — ১৯ জুলাই ২০২৬',matches:[
-    {date:'Jul 19',etH:15,etM:0,t1:'SF জয়ী ১',t2:'SF জয়ী ২',venue:'MetLife Stadium, East Rutherford, New Jersey'},
+  {round:'🏆 ফাইনাল — ১৯ জুলাই ২০২৬', matches:[
+    {date:'Jul 19',etH:15,etM:0,t1:{label:'SF জয়ী ১'},t2:{label:'SF জয়ী ২'},venue:'MetLife Stadium, East Rutherford, New Jersey'},
   ]},
 ];
 
+// ── RENDER GROUPS ─────────────────────────────────────────────────
+function renderGroups(){
+  document.getElementById('groups-container').innerHTML = GROUPS.map(g=>{
+    const sorted = sortedTeams(g.teams);
+    return `
+    <div class="group-card">
+      <div class="group-hd">
+        <div class="gl">${g.letter}</div>
+        <div><div style="font-size:.78rem;font-weight:600">Group ${g.letter}</div><div class="gv">${g.venue}</div></div>
+      </div>
+      <table class="pts-table">
+        <thead><tr>
+          <th>দল</th><th>খে</th><th>জ</th><th>ড্র</th><th>হ</th><th>গো.পা</th><th>গো.বি</th><th>গোড়</th><th>পয়</th>
+        </tr></thead>
+        <tbody>
+        ${sorted.map((t,i)=>{
+          const [mp,w,d,l,gf,ga,pts] = t.st;
+          const gd = gf-ga;
+          let cls = '';
+          if(QUALIFIED.has(t.name)) cls='qualified';
+          else if(i<2) cls='maybe-q';
+          return `<tr class="${cls}">
+            <td><div class="team-cell" onclick="selectTeam('${t.name}')">
+              <span>${t.flag}</span>
+              <span class="tc-name">${t.name}</span>
+              ${t.host?'<span class="host-tag">H</span>':''}
+            </div></td>
+            <td>${mp}</td><td>${w}</td><td>${d}</td><td>${l}</td>
+            <td>${gf}</td><td>${ga}</td><td>${gd>0?'+'+gd:gd}</td>
+            <td class="pts-bold">${pts}</td>
+          </tr>`;
+        }).join('')}
+        </tbody>
+      </table>
+      <div class="q-legend">
+        <div class="q-dot" style="background:#276749"></div><span>নকআউটে নিশ্চিত</span>
+        <div class="q-dot" style="background:#2B6CB0;margin-left:.4rem"></div><span>সম্ভাব্য</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── TEAM DROPDOWN ─────────────────────────────────────────────────
+function buildDropdown(){
+  const sel = document.getElementById('team-select');
+  const sorted = GROUPS.flatMap(g=>g.teams.map(t=>({...t,group:g.letter}))).sort((a,b)=>a.name.localeCompare(b.name));
+  sel.innerHTML = '<option value="">— একটি দল সিলেক্ট করুন —</option>' +
+    sorted.map(t=>`<option value="${t.name}">${t.flag} ${t.name} (Group ${t.group})</option>`).join('');
+}
+
+function selectTeam(name){
+  document.getElementById('team-select').value = name;
+  showTeamPanel(name);
+}
+
+function showTeamPanel(name){
+  const panel = document.getElementById('team-panel');
+  if(!name){ panel.classList.remove('show'); return; }
+  panel.classList.add('show');
+
+  let teamObj, groupObj;
+  for(const g of GROUPS){
+    const t = g.teams.find(x=>x.name===name);
+    if(t){ teamObj=t; groupObj=g; break; }
+  }
+  const [mp,w,d,l,gf,ga,pts] = teamObj.st;
+  const gd = gf-ga;
+  const teamMatches = MATCHES.filter(m=>m.home===name||m.away===name);
+
+  const qStatus = QUALIFIED.has(name)
+    ? '<span class="tag tag-done">✅ নকআউটে নিশ্চিত</span>'
+    : LIKELY.has(name)
+    ? '<span class="tag" style="background:#EBF8FF;color:#2B6CB0">🔵 সম্ভাব্য</span>'
+    : '';
+
+  panel.innerHTML = `
+    <div class="tp-header">
+      <span class="tp-flag">${teamObj.flag}</span>
+      <div>
+        <div class="tp-name">${name}</div>
+        <div class="tp-group">Group ${groupObj.letter} · ${qStatus}</div>
+      </div>
+      <div style="margin-left:auto;text-align:right">
+        <div class="tp-pts">${pts} পয়েন্ট</div>
+        <div class="tp-pts-lbl">${mp}ম্যাচ · ${gf} গো · গো.পা ${gd>=0?'+'+gd:gd}</div>
+      </div>
+    </div>
+    <div class="tp-matches">
+      ${teamMatches.map(m=>{
+        const bd = etToBD(m.date, m.etH, m.etM);
+        const isHome = m.home===name;
+        const opp = isHome?m.away:m.home;
+        return `
+        <div class="tp-match">
+          <div class="tp-team">${teamObj.flag} <span>${name}</span></div>
+          <div class="score-pill">${m.score||'VS'}</div>
+          <div class="tp-team r">${f(opp)} <span>${opp}</span></div>
+        </div>
+        <div class="tp-meta">
+          <span class="tag tag-date">📅 ${bd.date} (${bd.day})</span>
+          <span class="tag tag-time">🕐 ${bd.time} BST</span>
+          ${m.score?'<span class="tag tag-done">✅ সম্পন্ন</span>':'<span class="tag tag-soon">⏳ আসন্ন</span>'}
+          <span class="tag tag-venue">📍 ${m.venue.split(',')[0]}</span>
+        </div>`;
+      }).join('')}
+    </div>`;
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ── FULL MATCHES ──────────────────────────────────────────────────
+let activeFilter = 'All';
+function renderMatchesList(filter){
+  // Get ALL unique dates sorted
+  const allDates = [...new Set(MATCHES.map(m=>m.date))].sort((a,b)=>{
+    const mo={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6};
+    const [am,ad]=a.split(' '), [bm,bd]=b.split(' ');
+    return (mo[am]*31+ +ad)-(mo[bm]*31+ +bd);
+  });
+  document.getElementById('date-filter').innerHTML =
+    ['All',...allDates].map(d=>
+      `<button class="fbtn ${d===activeFilter?'active':''}" onclick="setFilter('${d}')">${d==='All'?'সব তারিখ':d}</button>`
+    ).join('');
+
+  const list = filter&&filter!=='All' ? MATCHES.filter(m=>m.date===filter) : MATCHES;
+  document.getElementById('matches-list').innerHTML = list.map(m=>{
+    const bd = etToBD(m.date,m.etH,m.etM);
+    return `<div class="full-match">
+      <div class="fm-team"><span>${f(m.home)}</span><span>${m.home}</span></div>
+      <div class="fm-mid">
+        <div class="fm-group">GRP ${m.group}</div>
+        <div class="fm-score">${m.score||'VS'}</div>
+        <div class="fm-date">${bd.date} · ${bd.time}</div>
+        <div class="fm-venue">${m.venue.split(',')[0]}</div>
+      </div>
+      <div class="fm-team r"><span>${f(m.away)}</span><span>${m.away}</span></div>
+    </div>`;
+  }).join('');
+}
+function setFilter(d){ activeFilter=d; renderMatchesList(d==='All'?null:d); }
+
+// ── KNOCKOUT ──────────────────────────────────────────────────────
 function renderKnockout(){
   document.getElementById('knockout-container').innerHTML = KO.map(r=>`
     <div class="ko-round">
       <div class="round-hd">${r.round}</div>
       <div class="ko-grid">
         ${r.matches.map(m=>{
-          const bd = etToBD(m.date, m.etH, m.etM);
-          return `
-            <div class="ko-card">
-              <div class="ko-date-bar">📅 ${bd.date} (${bd.day}) · 🕐 ${bd.time} BST · ${m.venue.split(',')[0]}</div>
-              <div class="ko-team"><span>⚽</span><span class="ko-tbd">${m.t1}</span></div>
-              <div class="ko-team"><span>⚽</span><span class="ko-tbd">${m.t2}</span></div>
-            </div>
-          `;
+          const bd = etToBD(m.date,m.etH,m.etM);
+          function teamEl(t){
+            if(t.confirmed && t.team){
+              return `<div class="ko-team">⚽ <span class="ko-confirmed">${f(t.team.split(' ')[0])} ${t.team}</span><span class="qualified-badge">✅ নিশ্চিত</span></div>`;
+            }
+            return `<div class="ko-team">⚽ <span class="ko-tbd">${t.label}</span></div>`;
+          }
+          return `<div class="ko-card">
+            <div class="ko-date-bar">📅 ${bd.date} (${bd.day}) · 🕐 ${bd.time} BST · ${m.venue.split(',')[0]}</div>
+            ${teamEl(m.t1)}${teamEl(m.t2)}
+          </div>`;
         }).join('')}
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
+// ── TABS ──────────────────────────────────────────────────────────
 function showTab(name, el){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
@@ -742,7 +690,8 @@ function showTab(name, el){
   el.classList.add('active');
 }
 
-// INIT
+// ── INIT ──────────────────────────────────────────────────────────
+buildDropdown();
 renderGroups();
 renderMatchesList(null);
 renderKnockout();
